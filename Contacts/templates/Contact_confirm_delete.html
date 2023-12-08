@@ -1,0 +1,23 @@
+<!-- Contacts/templates/Contact_confirm_delete.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Delete</title>
+</head>
+<body>
+    <h1>Confirm Delete</h1>
+    
+    <p>Are you sure you want to delete the contact "{{ contact.name }}"?</p>
+
+    <form method="post" action="{% url 'Contacts:contact_delete' pk=contact.pk %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+        <a href="{% url 'Contacts:contact_detail' pk=contact.pk %}">Cancel</a>
+    </form>
+
+    <!-- Copyright Line -->
+    <p style="text-align: center; font-size: 20px;">Copyright © Deepak Deokar</p>
+</body>
+</html>
