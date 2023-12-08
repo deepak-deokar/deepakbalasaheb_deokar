@@ -1,0 +1,97 @@
+<!-- Contacts/templates/Contact_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #0000ff; /* Change color as needed */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .action-buttons {
+            display: flex;
+        }
+
+        .action-buttons a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #0000ff;
+        }
+        /* Style for the "Create a New Contact" button */
+        a {
+            text-decoration: none;
+        }
+
+        button[type="button"] {
+            display: block;
+            margin: 0;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db; /* Background color for the button */
+            color: white; /* Text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="button"]:hover {
+            background-color: #2980b9; /* Change color on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Contact Management</h1>
+    <a href="{% url 'Contacts:contact_create' %}"><button type="button">Create a New Contact</button></a>
+    
+    <!-- Display Contacts in a table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Actions</th>
+                <th>Contact Name</th>
+                <th>Email</th>
+                <th>Created Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in object_list %}
+                <tr>
+                    <td class="action-buttons">
+                        <a href="{% url 'Contacts:contact_detail' pk=contact.pk %}" title="View Details"><i class="fas fa-eye"></i></a>
+                        <a href="{% url 'Contacts:contact_delete' pk=contact.pk %}" title="Delete"><i class="fas fa-trash"></i></a>
+                    </td>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.created_at|date:"M. d, Y, g:i a" }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    
+    <!-- Copyright Line -->
+    <p style="text-align: center; font-size: 20px;">Copyright © Deepak Deokar</p>
+</body>
+</html>
