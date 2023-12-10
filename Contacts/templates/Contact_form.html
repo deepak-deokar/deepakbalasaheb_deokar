@@ -5,71 +5,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Contact</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 20px;
-        }
-
-        h1 {
-            color: #428bca;
-        }
-
-        form {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        input {
-            width: 50%;
-            padding: 8px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #5cb85c;
-            color: #fff;
-            padding: 8px 12px;
-            border: none;
-            cursor: pointer;
-        }
-
-        a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        button:hover {
-            background-color: #4cae4c;
-        }
-
-        button:active {
-            background-color: #398439;
-        }
-
-        /* Add any additional styling as needed */
-    </style>
 </head>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #e9ecef;
+    color: #495057;
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #3498db;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+form {
+    background: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin: auto;
+    width: fit-content;
+}
+
+/* Style for the paragraph tags within the form */
+form p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: auto;
+    color:#3498db;
+}
+
+/* Style for labels */
+form p label {
+    width: 50px; /* Adjust the width as needed */
+    margin-right: 10px;
+    text-align: right;
+}
+
+/* Style for inputs and textareas */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    flex-grow: 1;
+    margin-left: 10px; /* To match the margin on the label for alignment */
+}
+
+/* Style for submit button */
+input[type="submit"],
+button {
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
+    background-color: #3498db;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
+button:hover {
+    background-color: #a1dbf1;
+}
+
+/* Specific style for the Back to Contact List button */
+a button {
+    background-color: #3498db;
+    text-decoration: none;
+}
+
+a button:hover {
+    background-color: #a1dbf1;
+}
+form p select:nth-of-type(1) {
+    width: 50px;
+    margin-left: 10px; /* or you can set a specific width */
+    max-width: 100px; /* Adjust this as needed */
+}
+
+/* This targets the second select element which might be your country select */
+form p select:nth-of-type(2) {
+    width: auto; /* or you can set a specific width */
+    max-width: 200px; /* Adjust this as needed to prevent overlap */
+}
+
+/* Adjust the label width to prevent overlapping */
+form p label {
+    min-width: 80px; /* Adjust this as needed to prevent overlap */
+    display: inline-block; /* This will ensure that the min-width is respected */
+    text-align: left;
+}
+/* Footer paragraph style */
+p {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    color: #008000;
+    font-weight: bold;
+}
+
+
+</style>
 <body>
-    <h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Contact</h1>
+    <h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} a Contact</h1>
     
     <form method="post" action="">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Save</button>
+        <button type="submit">Submit</button>
+        <a href="{% url 'Contacts:contact_list' %}"><button type="button">Cancel</button></a>
     </form>
-
-    <a href="{% url 'Contacts:contact_list' %}"><button type="button">Back to Contact List</button></a>
-
-    <!-- Copyright Line -->
-    <p style="text-align: center; font-size: 20px;">Copyright © Deepak Deokar</p>
+  <!-- Copyright Line -->
+  <p style="text-align: center; font-size: 20px;">Copyright © Deepak Deokar</p>
 </body>
 </html>
