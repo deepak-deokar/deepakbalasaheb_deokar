@@ -5,65 +5,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Details</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 20px;
-        }
-
-        h1 {
-            color: #428bca;
-        }
-
-        p {
-            margin-bottom: 10px;
-        }
-
-        strong {
-            color: #5bc0de;
-        }
-
-        button {
-            background-color: #5cb85c;
-            color: #fff;
-            padding: 8px 12px;
-            border: none;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-
-        a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        button:hover {
-            background-color: #4cae4c;
-        }
-
-        button:active {
-            background-color: #398439;
-        }
-
-        /* Add any additional styling as needed */
-    </style>
 </head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    vertical-align: middle;
+}
+
+h1 {
+    color: #27a2db;
+    margin-bottom: 20px;
+}
+
+.details p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.button-group {
+    margin-top: 20px;
+}
+
+.button-group a button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.button-group a button:nth-child(1) {
+    background-color: #3498db;
+    color: black;
+}
+
+.button-group a button:nth-child(2) {
+    background-color: #f1c40f;
+    color: black;
+}
+
+.button-group a button:nth-child(3) {
+    background-color: #e74c3c;
+    color: black;
+}
+
+.button-group button:hover {
+    opacity: 0.8;
+}
+
+.details-frame {
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin: 0 auto;
+        }
+
+.details {
+    text-align: left;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background-color: transparent;
+    font-size: 16px;
+}
+
+footer p {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    color: #008000;
+    font-weight: bold;
+}
+
+</style>
 <body>
     <h1>Contact Details</h1>
+    <div class="details-frame">
+    <div class="details">
+        <p><strong>Name:</strong> {{ contact.name }}</p>
+        <p><strong>Email:</strong> {{ contact.email }}</p>
+        <p><strong>Notes:</strong> {{ contact.notes }}</p>
+        <p><strong>Created Time:</strong> {{ object.created_at | date:"M d, Y, H:i" }}</p>
+    </div>
     
-    <p><strong>Name:</strong> {{ contact.name }}</p>
-    <p><strong>Email:</strong> {{ contact.email }}</p>
-    <p><strong>Notes:</strong> {{ contact.notes }}</p>
-    <!-- Add other fields as needed -->
-    
-    <a href="{% url 'Contacts:contact_list' %}"><button type="button">Home</button></a>
-    <a href="{% url 'Contacts:contact_edit' pk=contact.pk %}"><button type="button">Edit</button></a>
-    <a href="{% url 'Contacts:contact_delete' pk=contact.pk %}"><button type="button">Delete</button></a>
-
-    <!-- Copyright Line -->
-    <p style="text-align: center; font-size: 20px;">Copyright © Deepak Deokar</p>
+    <div class="button-group">
+        <a href="{% url 'Contacts:contact_list' %}"><button type="button">Home</button></a>
+        <a href="{% url 'Contacts:contact_edit' pk=contact.pk %}"><button type="button">Edit</button></a>
+        <a href="{% url 'Contacts:contact_delete' pk=contact.pk %}"><button type="button">Delete</button></a>
+    </div>
+    </div>
+    <footer>
+        <p>©Created by Deepak Deokar</p>
+    </footer>
 </body>
 </html>
-
