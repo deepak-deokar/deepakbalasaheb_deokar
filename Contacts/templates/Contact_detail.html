@@ -1,4 +1,3 @@
-<!-- Contacts/templates/Contact_detail.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,93 +7,82 @@
 </head>
 <style>
     body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7f6;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    vertical-align: middle;
-}
+        font-family: Arial, sans-serif;
+        background-color: #f4f7f6;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+        vertical-align: middle;
+    }
 
-h1 {
-    color: #27a2db;
-    margin-bottom: 20px;
-}
+    h1 {
+        color: #27a2db;
+        margin-bottom: 20px;
+    }
 
-.details p {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-}
+    .details p {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+    }
 
-.button-group {
-    margin-top: 20px;
-}
+    .button-group {
+        margin-top: 20px;
+    }
 
-.button-group a button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
+    .button-group a button {
+        margin-right: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
 
-.button-group a button:nth-child(1) {
-    background-color: #3498db;
-    color: black;
-}
+    .button-group a button:nth-child(1) {
+        background-color: #3498db;
+        color: black;
+    }
 
-.button-group a button:nth-child(2) {
-    background-color: #f1c40f;
-    color: black;
-}
+    .button-group a button:nth-child(2) {
+        background-color: #f1c40f;
+        color: black;
+    }
 
-.button-group a button:nth-child(3) {
-    background-color: #e74c3c;
-    color: black;
-}
+    .button-group a button:nth-child(3) {
+        background-color: #e74c3c;
+        color: black;
+    }
 
-.button-group button:hover {
-    opacity: 0.8;
-}
+    .button-group button:hover {
+        opacity: 0.8;
+    }
 
-.details-frame {
-            border: 2px solid #ccc;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 60%;
-            margin: 0 auto;
-        }
+    .details-frame {
+        border: 2px solid #ccc;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 60%;
+        margin: 0 auto;
+    }
 
-.details {
-    text-align: left;
-}
+    .details {
+        text-align: left;
+    }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 15px;
-    background-color: transparent;
-    font-size: 16px;
-}
-
-footer p {
-    text-align: center;
-    font-size: 20px;
-    margin-top: 20px;
-    color: #008000;
-    font-weight: bold;
-}
-
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 20px;
+        color: #008000;
+        font-weight: bold;
+    }
 </style>
 <body>
     <h1>Contact Details</h1>
@@ -112,8 +100,8 @@ footer p {
         <a href="{% url 'Contacts:contact_delete' pk=contact.pk %}"><button type="button">Delete</button></a>
     </div>
     </div>
-    <footer>
-        <p>©Created by Deepak Deokar</p>
-    </footer>
+    <div class="footer">
+        Copyright © Deepak Deokar
+    </div>
 </body>
 </html>
