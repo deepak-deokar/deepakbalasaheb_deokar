@@ -27,13 +27,6 @@ class ContactDeleteView(DeleteView):
     template_name = 'Contact_confirm_delete.html'
     success_url = reverse_lazy('Contacts:contact_list')
 
-    def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        contact_name = self.object.name  
-        response = super(ContactDeleteView, self).delete(request, *args, **kwargs)
-        success_message = f'"{self.object.name}" has been successfully deleted.'
-        messages.success(request, success_message)
-        return response
 
 class ContactDetailView(DetailView):
     model = Contact
