@@ -66,20 +66,13 @@
     }
 
 
-footer p {
-    text-align: center;
-    font-size: 16px;
-    color: #008000;
-    font-weight: normal;
-    margin-top: 40px;
-}
-
-footer p:before {
-    content: "©Created by ";
-    font-size: 0.8em; 
-    color: #6c757d;
-}
-
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 20px;
+        color: #008000;
+        font-weight: bold;
+    }
 </style>
 <body>
     <h1>Confirm Delete</h1>
@@ -93,6 +86,8 @@ footer p:before {
         <a href="{% url 'Contacts:contact_detail' pk=contact.pk %}">Cancel</a>
     </form>
     
-    <p style="text-align: center; font-size: 20px;">Copyright © Deepak Deokar</p>
+    <div class="footer">
+        Copyright © Deepak Deokar
+    </div>
 </body>
 </html>
