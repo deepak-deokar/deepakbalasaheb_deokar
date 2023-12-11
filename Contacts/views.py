@@ -1,8 +1,7 @@
 
 from django.urls import reverse_lazy
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
-from django.contrib import messages
 from .models import Contact
 from .forms import ContactForm
 
@@ -16,6 +15,10 @@ class ContactCreateView(CreateView):
     form_class = ContactForm
     success_url = reverse_lazy('Contacts:contact_list')
 
+
+    #def get_success_url(self):
+     #   return reverse_lazy('Contacts:contact_list')
+
 class ContactUpdateView(UpdateView):
     model = Contact
     template_name = 'Contact_form.html'
@@ -27,15 +30,6 @@ class ContactDeleteView(DeleteView):
     template_name = 'Contact_confirm_delete.html'
     success_url = reverse_lazy('Contacts:contact_list')
 
-    def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        contact_name = self.object.name  
-        response = super(ContactDeleteView, self).delete(request, *args, **kwargs)
-        success_message = f'"{self.object.name}" has been successfully deleted.'
-        messages.success(request, success_message)
-        return response
-
 class ContactDetailView(DetailView):
     model = Contact
     template_name = 'Contact_detail.html'
-
