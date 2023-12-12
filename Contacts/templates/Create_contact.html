@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Contact</title>
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #e9ecef;
+        color: #495057;
+        padding-top: 40px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        color: #3498db;
+        font-size: 2.5em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    form {
+        background: #fff;
+        padding: 2em;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        margin: auto;
+        width: fit-content;
+    }
+
+
+    form p {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: auto;
+        color:#3498db;
+    }
+
+
+    form p label {
+        width: 50px; 
+        margin-right: 10px;
+        text-align: right;
+    }
+
+
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        flex-grow: 1;
+        margin-left: 10px; 
+    }
+
+
+    input[type="submit"],
+    button {
+        padding: 10px 15px;
+        border-radius: 4px;
+        border: none;
+        background-color: #3498db;
+        font-size: 14px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+
+    button:hover {
+        background-color: #a1dbf1;
+    }
+
+
+    a button {
+        background-color: #3498db;
+        text-decoration: none;
+    }
+
+    a button:hover {
+        background-color: #a1dbf1;
+    }
+    form p select:nth-of-type(1) {
+        width: 50px;
+        margin-left: 10px; 
+        max-width: 100px; 
+    }
+
+
+    form p select:nth-of-type(2) {
+        width: auto; 
+        max-width: 200px; 
+    }
+
+
+    form p label {
+        min-width: 80px; 
+        display: inline-block;
+        text-align: left;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 20px;
+        color: #008000;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <h1>Create a Contact</h1>
+    
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+        <a href="{% url 'Contacts:contact_list' %}"><button type="button">Cancel</button></a>
+    </form>
+    <div class="footer">
+        Copyright © Deepak Deokar
+    </div>
+</body>
+</html>
